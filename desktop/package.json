@@ -1,0 +1,55 @@
+{
+  "name": "kurapify-desktop",
+  "productName": "Kurapify",
+  "version": "0.1.1",
+  "description": "Kurapify: YouTube Music in a desktop window, with Apple Music artwork, artist pages, lyrics, music videos, comments and Spotify streams",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "sync": "node sync-web.mjs",
+    "icon": "electron make-icon.js",
+    "pack": "electron-builder --win dir",
+    "dist": "electron-builder --win nsis zip"
+  },
+  "build": {
+    "appId": "local.kurapify.desktop",
+    "productName": "Kurapify",
+    "files": [
+      "main.js",
+      "preload.js",
+      "ytauth.js",
+      "spotify.js",
+      "local.js",
+      "icon.png",
+      "icon.ico",
+      "app-dist/**"
+    ],
+    "win": {
+      "icon": "icon.ico",
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    },
+    "directories": {
+      "output": "release"
+    },
+    "artifactName": "Kurapify-${version}-win-x64.${ext}",
+    "nsis": {
+      "artifactName": "Kurapify-Setup-${version}.${ext}",
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^45.2.1",
+    "electron-builder": "^26.18.0"
+  },
+  "dependencies": {
+    "music-metadata": "^11.16.1"
+  }
+}

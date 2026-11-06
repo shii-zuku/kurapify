@@ -1,0 +1,19 @@
+{
+  "name": "kurapify-web",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.11.2",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @kurapify/app dev",
+    "dev:ext": "pnpm --filter @kurapify/extension dev",
+    "dev:ext:firefox": "pnpm --filter @kurapify/extension dev:firefox",
+    "build": "pnpm -r build",
+    "build:site": "pnpm --filter @kurapify/extension package && pnpm --filter @kurapify/app build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "fixtures": "node scripts/capture-fixtures.mjs"
+  }
+}

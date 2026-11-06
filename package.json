@@ -1,0 +1,18 @@
+{
+  "name": "kurapify",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A YouTube Music desktop player, dressed like Apple Music",
+  "license": "GPL-3.0-only",
+  "packageManager": "pnpm@12.11.2",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "install:web": "pnpm --dir web install",
+    "build:web": "pnpm --dir web/app build",
+    "typecheck": "pnpm --dir web -r typecheck",
+    "test": "pnpm --dir web/app exec vitest run",
+    "dev": "pnpm --dir web/app dev"
+  }
+}
